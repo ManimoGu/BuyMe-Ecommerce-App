@@ -1,20 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-import Storage from "redux-persist/es/storage";
+import { combineReducers } from "@reduxjs/toolkit";
+import storage from 'redux-persist/lib/storage';
 import { persistReducer } from "redux-persist";
+import CardReducer from "./Reducers/Cards"
 import thunk from "redux-thunk";
 
-const reducers = {}
+const reducers = combineReducers({
+    Cards : CardReducer
+})
 
 const config = {
     key : "root",
-    Storage
+     storage
     
 }
 
-const reducer = persistReducer(config, reducers)
+const reducerss = persistReducer(config, reducers)
 
 const Store = configureStore({
-    reducer : reducer,
+    reducer : reducerss,
     devTools : process.env.NODE_ENV !== "production",
     middleware : [thunk]
 })
