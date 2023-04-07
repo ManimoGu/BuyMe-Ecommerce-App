@@ -1,17 +1,25 @@
 import styles from "./styles.module.scss";
 import { MdSecurity } from "react-icons/md";
-import {BsSuitHeart} from "react-icons/bs"
-import {RiAccountPinCircleLine,RiArrowDropDownFill } from "react-icons/ri"
+import { BsSuitHeart } from "react-icons/bs";
+import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
+import { useState } from "react";
+import UserMenu from "./UserMenu";
 
 export default function Top() {
+  const [logged, setLogged] = useState(false);
+
   return (
     <div className={styles.Top}>
       <div className={styles.top_container}>
         <div></div>
         <ul className={styles.top_list}>
           <li>
-            <img src="https://www.seekpng.com/png/full/323-3232715_morocco-flag-png-angel-tube-station.png" alt="" />
+            <img
+              src="https://www.seekpng.com/png/full/323-3232715_morocco-flag-png-angel-tube-station.png"
+              alt=""
+             
+            />
             <span>Morocco / usd</span>
           </li>
           <li>
@@ -25,17 +33,32 @@ export default function Top() {
             <span>Help</span>
           </li>
           <li>
-            <BsSuitHeart/>
-            <Link href="/profile/whishlist"><span>Whishlist</span></Link>
-            
+            <BsSuitHeart />
+            <Link href="/profile/whishlist">
+              <span>Whishlist</span>
+            </Link>
           </li>
           <li>
-            <div className={styles.flex}>
-                <RiAccountPinCircleLine/>
+          {logged ? (
+            <li>
+              <div className={styles.flex}>
+                <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png" alt="" />
+                <span>Imane</span>
+                <RiArrowDropDownFill />
+              </div>
+            </li>
+          ) : (
+            <li>
+              <div className={styles.flex}>
+                <RiAccountPinCircleLine />
                 <span>Account</span>
-                <RiArrowDropDownFill/>
-            </div>
+                <RiArrowDropDownFill />
+              </div>
+            </li>
+          )}
+         <UserMenu logged = {logged}/>
           </li>
+          
         </ul>
       </div>
     </div>
