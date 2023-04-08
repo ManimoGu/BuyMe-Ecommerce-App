@@ -1,0 +1,41 @@
+import mongoose from "mongoose";
+
+const connection = {};
+
+async function connectDB() {
+  if (connection.isConnected) {
+    console.log("already connceted to the database");
+    return;
+  }
+  if (mongoose.connections.length > 0) {
+    connection.isConnected = mongoose.connections[0].readyState;
+    if (connection.isConnected === 1) {
+      console.log("Use previous connection to database ");
+      return;
+    }
+    await mongoose.disconnect();
+  }
+
+  const db = await mongoose.connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  console.log("new connection to database");
+  connection.isConnected = mongoose.connections[0].readyState;
+}
+
+async function disconnectDB() {
+  if (connection.isConnected) {
+    if (process.env.NODE_ENV === "production"){
+      await mongoose.disconnect();
+      connection.isConnected = false;
+    } else {
+        console.log("not disconnecting from the database")
+  }
+}
+}
+
+const db =  {connectDB, disconnectDB}
+
+export default db 
