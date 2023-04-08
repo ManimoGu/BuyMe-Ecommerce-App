@@ -6,7 +6,7 @@ import CardReducer from "./Reducers/Cards"
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
-    Cards : CardReducer
+    Carts : CardReducer
 })
 
 const config = {

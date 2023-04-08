@@ -11,7 +11,7 @@ export default function Top() {
   const [visible, setvisible] = useState(false);
 
   return (
-    <div className={styles.Top}>
+    <div className={styles.top}>
       <div className={styles.top_container}>
         <div></div>
         <ul className={styles.top_list}>
