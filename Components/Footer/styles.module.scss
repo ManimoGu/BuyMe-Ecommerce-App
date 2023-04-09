@@ -8,12 +8,32 @@
     position: relative;
     width: 100%;
     display: grid;
+    grid-template-areas: 
+    "links"
+    "newsletter"
+    "payment"
+    "socials"
+    "copywrite"
+    ;
     gap: 3rem;
     padding: 1rem;
+    @media (min-width : 800px){
+        grid-template-areas: 
+        "links socials"
+        "links newsletter"
+        "copywrite payment"
+        ;
+
+    }
+    @media (min-width : 1200px){
+        max-width: 900px;
+        margin: 0 auto;
+    }
   }
   img {
     width: 140px;
     height: 40px;
+    object-fit: contain;
   }
   &_flex{
     display: flex;
@@ -21,6 +41,7 @@
     gap: 5px;
   }
   &_links {
+    grid-area: links;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -40,6 +61,7 @@
   }
 
   &_socials {
+    grid-area: socials;
     section {
       ul {
         margin-top: 10px;
@@ -58,6 +80,7 @@
   }
 
   &_newsletter {
+    grid-area: newsletter;
     input {
       outline: none;
       border: 1px solid #999;
@@ -81,6 +104,7 @@
   }
 
   &_payment{
+    grid-area: payment;
 
   }
   &_flexwrap{
@@ -95,6 +119,7 @@
      }    
   }
   &_copywrite{
+    grid-area: copywrite;
     section{
         font-size: 12px;
         color : #666;
