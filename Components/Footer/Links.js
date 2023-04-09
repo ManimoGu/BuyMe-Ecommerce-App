@@ -1,4 +1,4 @@
-import { imageConfigDefault } from "next/dist/shared/lib/image-config"
+
 import styles from "./styles.module.scss"
 import Link from "next/link"
 
