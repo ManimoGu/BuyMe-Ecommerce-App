@@ -1,5 +1,7 @@
+import Copywrite from "./Copywrite"
 import Links from "./Links"
 import Newsletter from "./Newsletter"
+import Payment from "./Payment"
 import Socials from "./Socials"
 import styles from "./styles.module.scss"
 
@@ -10,6 +12,8 @@ export default function Footer() {
             <Links/>
             <Socials/>
             <Newsletter/>
+            <Payment/>
+            <Copywrite/>
         </div>
     </footer>
   )
