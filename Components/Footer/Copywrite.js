@@ -2,7 +2,7 @@ import styles from "./styles.module.scss"
 import Link from "next/link"
 import {IoLocationSharp} from "react-icons/io5"
 
-const Copywrite = () => {
+const Copywrite = ({country}) => {
   return (
     <div className={styles.footer_copywrite}>
         <section>@2023 BUYME All Rights Resereved</section>
@@ -17,7 +17,7 @@ const Copywrite = () => {
                 }
                 <li>
                     <a href="">
-                       <IoLocationSharp/> Morocco
+                       <IoLocationSharp/> {country.name}
                     </a>
                 </li>
             </ul>

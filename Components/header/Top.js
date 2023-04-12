@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 import UserMenu from "./UserMenu";
 
-export default function Top() {
+export default function Top({country}) {
   const [logged, setLogged] = useState(true);
   const [visible, setvisible] = useState(false);
 
@@ -17,11 +17,11 @@ export default function Top() {
         <ul className={styles.top_list}>
           <li className={styles.li}>
             <img
-              src="https://www.seekpng.com/png/full/323-3232715_morocco-flag-png-angel-tube-station.png"
+              src={country.flag.emojitwo}
               alt=""
              
             />
-            <span>Morocco / usd</span>
+            <span>{country.name} / usd</span>
           </li >
           <li className={styles.li}>
             <MdSecurity />
