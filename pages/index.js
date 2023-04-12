@@ -16,7 +16,7 @@ export default function Home(props) {
       <main className={styles.main}>
 
        <Header country = {props.country}/>
-       {session ? "you are logged in" : "your not logged in"}
+    
        <Footer country = {props.country} />
        
       </main>
