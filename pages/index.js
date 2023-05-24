@@ -26,7 +26,7 @@ export default function Home(props) {
 
 export async function getServerSideProps(){
 
-  let data = await axios.get("https://api.ipregistry.co/?key=0na8c7ubwrpcowwg")
+  //let data = await axios.get("https://api.ipregistry.co/?key=0na8c7ubwrpcowwg")
    //let country = data.data.location.country
    let country = {
     name : "Morocco",

@@ -18,3 +18,12 @@ export default function Footer({country}) {
     </footer>
   )
 }
+
+Footer.defaultProps = {
+  country : {
+    name : "Morocco",
+    flag : {
+      emojitwo : ""
+    }
+  }
+}

@@ -14,4 +14,13 @@ const Header = ({country}) => {
   )
 }
 
+Header.defaultProps = {
+  country : {
+    name : "Morocco",
+    flag : {
+      emojitwo : ""
+    }
+  }
+}
+
 export default Header
